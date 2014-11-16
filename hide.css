@@ -1,0 +1,9 @@
+.myhide {
+	opacity: 0.3;
+	pointer-events: none;
+}
+
+.myshow {
+	opacity: 1.0;
+	pointer-events: auto;
+}
