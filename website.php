@@ -45,7 +45,7 @@
 			        <li class="dropdown">
 			          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Inventory Management<b class="caret"></b></a>
 			          <ul class="dropdown-menu">
-			          	<li><a href="ListInv.php">List Inventory</a></li>
+			          	<li><a href="ListInv.php">View Inventory</a></li>
 			          	<li class="divider"></li>
 			          	<li><a href="SearchInvPrep.php">Adjust Inventory</a></li>
 			          </ul>
@@ -63,6 +63,7 @@
 			        <li class="dropdown">
 			          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Venders<b class="caret"></b></a>
 			          <ul class="dropdown-menu">
+			          	<li><a href="ViewAllVenders.php">View all Venders</a></li>
 			          	<li><a href="SearchVenderPrep.php">Edit a Venders Info</a></li>
 			          	<li><a href="AddNewVender.php">Add New Vender</a></li>	 	          	
 			          </ul>
@@ -130,6 +131,7 @@
 	        		<h2></h2>
 	        		<a href="AddNewVender.php"><button type=​"button" class=​"btn btn-default">​Add Vender</button></a>
 	        		<h2></h2>
+	        		<a href="ViewAllVenders.php"><button type=​"button" class=​"btn btn-default">View All Venders</button></a>
 	        	</div>
 	        	<div class="col-md-6">
 	        		<h1>Purchase Orders:</h1>

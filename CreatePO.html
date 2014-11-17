@@ -1,0 +1,182 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Create PO</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+
+        <link rel="stylesheet" href="css/bootstrap2.css">
+		<!-- <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/jumbotron-narrow.css"> -->
+        
+        <script src="js/vendor/modernizr-2.7.1.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+		<div class="container-fluid">
+	        <nav class="navbar navbar-inverse" role="navigation">
+			  <div class="container-fluid">
+			    <!-- Brand and toggle get grouped for better mobile display -->
+			    <div class="navbar-header">
+			      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+			      <a class="navbar-brand" href="website.php">Home</a>
+			    </div>
+			
+			    <!-- Collect the nav links, forms, and other content for toggling -->
+			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			      <ul class="nav navbar-nav">
+			        <li class="dropdown">
+			          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Inventory <b class="caret"></b></a>
+			          <ul class="dropdown-menu">
+			            <li><a href="AddItem.html">Add Item</a></li>
+			            <li><a href="ListInv.php">List Inventory</a></li>
+			            <!-- <li class="divider"></li> -->
+			            <li><a href="RemoveItem.html">Remove Item</a></li>
+			            <!-- <li class="divider"></li> -->
+			            <li><a href="UpdateItem.html">Update Item</a></li>
+						<li><a href="AdjustInv.html">Adjust Inventory</a></li>
+			          </ul>
+			        </li>
+			        <li class="dropdown">
+			          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Purchase Orders <b class="caret"></b></a>
+			          <ul class="dropdown-menu">
+			            <li><a href="Listpos.php">List PO's</a></li>
+			            <li><a href="searchpos.php">Search PO's</a></li>
+			            <li class="divider"></li>
+			            <li><a href="#">Create PO</a></li>
+						<li><a href="ReceivePO.html">Receive PO</a></li>
+						<li><a href="ChangePO.html">Change PO</a></li>
+						<li><a href="DeletePO.html">Delete PO</a></li>
+			            <!-- <li class="divider"></li>
+			            <li><a href="#">One more separated link</a></li> -->
+			          </ul>
+			        </li>
+			      </ul>
+			      <ul class="nav navbar-nav navbar-right">
+			      	<a href="index.php"><button type="submit" class="btn btn-default navbar-btn">Sign out</button></a>
+			        
+			      </ul>
+			    </div><!-- /.navbar-collapse -->
+			  </div><!-- /.container-fluid -->
+			</nav>
+			
+	        <h1>Create PO</h1>
+	        <div class="row">
+	        	<div class="col-sm-5">
+	        		<form action="CreatePO.php" role="form" method="post">
+	        			<div class="form-group">
+	        				<label for="dateGenerated">Date Generated: </label>
+	        				<input type="date" class="form-control" id="date" name="dateGenerated" placeholder="Enter date of PO creation">
+	        			</div>
+	        			<div class="form-group">
+	        				<label for="vendorID">Vendor ID: </label>
+	        				<input type="number" class="form-control" id="vendorID" name="vendorID" placeholder="Enter Vendor ID">
+	        			</div>
+	        			<div class="form-group">
+	        				<label for="storeID">Store ID: </label>
+	        				<input type="number" class="form-control" id="storeID" name="storeID" placeholder="Enter Store ID">
+	        			</div>
+						<div class="form-group">
+	        				<label for="dateNeeded">Need-By Date: </label>
+	        				<input type="date" class="form-control" id="dateNeeded" name="dateNeeded" placeholder="Enter date needed">
+	        			</div>
+					</form>
+				</div>
+			</div>
+			<div class="row"> <!-- PO Line 1; would be best to auto-populate lineNumber -->
+				<form action="CreatePO.php" role="form" method="post">
+					<div class="form-group">	
+						<div class="col-md-1">
+							<label for="lineNumber">Line #: </label>
+							<input type="number" class="form-control" id="lineNumber" name="lineNumber">
+						</div>
+						<div class="col-md-2">
+							<label for="itemNumber">Item #: </label>
+							<input type="number" class="form-control" id="itemNumber" name="itemNumber" placeholder="Enter Item Number">
+						</div>
+						<div class="col-md-1">
+							<label for="quantity">Quantity: </label>
+							<input type="number" class="form-control" id="quantity" name="quantity" placeholder="Enter Quantity">
+						</div>
+						<div class="col-md-1">
+							<label for="cost">Item Cost: </label>
+							<input type="number" class="form-control" id="cost" name="cost" placeholder="Enter cost">
+						</div>
+						<div class="col-md-2"> <!-- This field needs to calculate quantity X cost -->
+							<label for="lineTotal">Line Total Cost: </label>
+							<input type="number" class="form-control" id="lineTotal" name="lineTotal">
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="row"> <!-- PO Line 2; would be best to auto-populate lineNumber -->
+				<form action="CreatePO.php" role="form" method="post">
+					<div class="form-group">	
+						<div class="col-md-1">
+							<input type="number" class="form-control" id="lineNumber" name="lineNumber">
+						</div>
+						<div class="col-md-2">
+							<input type="number" class="form-control" id="itemNumber" name="itemNumber" placeholder="Enter Item Number">
+						</div>
+						<div class="col-md-1">
+							<input type="number" class="form-control" id="quantity" name="quantity" placeholder="Enter Quantity">
+						</div>
+						<div class="col-md-1">
+							<input type="number" class="form-control" id="cost" name="cost" placeholder="Enter cost">
+						</div>
+						<div class="col-md-2">
+							<input type="number" class="form-control" id="lineTotal" name="lineTotal">
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="row"> <!-- PO Line 3; would be best to auto-populate lineNumber -->
+				<form action="CreatePO.php" role="form" method="post">
+					<div class="form-group">	
+						<div class="col-md-1">
+							<input type="number" class="form-control" id="lineNumber" name="lineNumber">
+						</div>
+						<div class="col-md-2">
+							<input type="number" class="form-control" id="itemNumber" name="itemNumber" placeholder="Enter Item Number">
+						</div>
+						<div class="col-md-1">
+							<input type="number" class="form-control" id="quantity" name="quantity" placeholder="Enter Quantity">
+						</div>
+						<div class="col-md-1">
+							<input type="number" class="form-control" id="cost" name="cost" placeholder="Enter cost">
+						</div>
+						<div class="col-md-2">
+							<input type="number" class="form-control" id="lineTotal" name="lineTotal">
+						</div>
+					</div>
+				</form>
+			</div>
+	        
+			<!-- Maybe button to add more PO lines??? -->
+	        
+			<button type="submit" class="btn btn-default">Create PO</button>
+	    </div>
+		
+		
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		
+    </body>
+</html>
