@@ -23,8 +23,7 @@
 						$Date_Expected = mysqli_real_escape_string($con, $_POST['Date_Expected']);
 						// Insert data into mysql 
 						$sql="INSERT IGNORE INTO PO_REQUEST (Date_Generated,Vend_ID,Store_ID,Date_Expected,User_ID) VALUES('$Date_Generated','$Vend_ID','$store','$Date_Expected','$User')";
-						$result = mysqli_query($con,$sql);
-						
+						$result = mysqli_query($con,$sql);			
 						if (!mysqli_query($con,$sql)) 
 						{
 						  die('Error: ' . mysqli_error($con));

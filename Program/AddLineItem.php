@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Create PO</title>
+        <title>Create Line Item</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -44,45 +44,72 @@
 			    </div><!-- /.navbar-collapse -->
 			  </div><!-- /.container-fluid -->
 			</nav>
-			
+			<?php
+			include 'connection.php';
+							$mysql_hostname = 'fall14seniorproj.db.7456864.hostedresource.com';
+							$mysql_username = 'fall14seniorproj';
+							$mysql_password = 'Seniorproject1#';
+						    $mysql_dbname = 'fall14seniorproj';
+						    $con = new mysqli($mysql_hostname, $mysql_username,$mysql_password,$mysql_dbname,3306);
+							
+							if (mysqli_connect_errno())
+							{
+								echo "DB Connection failed"+ mysqli_connect_errno();
+							}
+							mysqli_select_db($con,$mysql_dbname);
+
+							$sql="SELECT PO_Request_ID FROM PO_REQUEST ORDER BY PO_Request_ID DESC LIMIT 1";
+							
+							$result = mysqli_query($con,$sql);
+							
+							 while ($row=mysqli_fetch_assoc($result))
+			 					{
+			 						$row1 = $row['PO_Request_ID'];
+			 					}
+			 				mysqli_close($con);
+			?>
 	        <h1>Add Line Item to PO</h1>
+	        <h3>PO Number:<?php echo $row1;?></h3>
 	        <form action="AddAllLineItemSUBMIT.php" role="form" method="post">
 	        <div class="row"> 
-				<form action="AddLineItem.php" role="form" method="post">
+				<form action="AddLineItemSUBMIT.php" role="form" method="post">
 					<?php
 							include 'connection.php';
 							$mysql_hostname = 'fall14seniorproj.db.7456864.hostedresource.com';
 							$mysql_username = 'fall14seniorproj';
 							$mysql_password = 'Seniorproject1#';
 						    $mysql_dbname = 'fall14seniorproj';
-						    $LastInsertedID = mysql_insert_id();
 						    $con = new mysqli($mysql_hostname, $mysql_username,$mysql_password,$mysql_dbname,3306);
+							
 							if (mysqli_connect_errno())
 							{
 								echo "DB Connection failed"+ mysqli_connect_errno();
 							}
 							mysqli_select_db($con,$mysql_dbname);
-							$sql="SELECT * FROM LINE_ITEM WHERE LINE_ITEM.PO-REQUEST='$LastInsertedID'";
+							$sql="SELECT * FROM LINE_ITEM WHERE LINE_ITEM.PO-REQUEST=(SELECT @@Identity)";
 							$result = mysqli_query($con,$sql);
 							
 							if ($result)
 							{
 							while($row = mysqli_fetch_array($result))
 							  {
+							$counter = 2;
 							echo "<div class=\"col-md-1\">";
 							echo "<label for=\"lineNumber\">Line #: </label>";
-							$ItemNum+1;
-							echo " <input type=\"number\" class=\"form-control\" id=\"lineNumber\" name=\"lineNumber\" value=\"<?php $ItemNum+$ItemNum; ?>\">";
+							?>
+							<input type="number" class="form-control" id="lineNumber" name="lineNumber" value="<?php echo"$counter"; ?>">
+							<?php
+							$counter++;
 							echo "</div>";
 							echo "<div class=\"col-md-2\">";
 							echo "<label for=\"itemNumber\">Item #: </label>";
-
+							include 'connection.php';
 							$mysql_hostname = 'fall14seniorproj.db.7456864.hostedresource.com';
 							$mysql_username = 'fall14seniorproj';
 							$mysql_password = 'Seniorproject1#';
 						    $mysql_dbname = 'fall14seniorproj';
-						
 						    $con = new mysqli($mysql_hostname, $mysql_username,$mysql_password,$mysql_dbname,3306);
+							
 							if (mysqli_connect_errno())
 							{
 								echo "DB Connection failed"+ mysqli_connect_errno();
@@ -94,7 +121,7 @@
 							// for each open job, create the HTML<option> tag with the data name
 							while($row = mysqli_fetch_array($result))
 							  {
-							      echo("</option><option value=". $row['Product_ID'] . ">Item #: ". $row['Product_ID'] ." Name: ". $row['Name'] ."</option>");
+							      echo("<option value=". $row['Product_ID'] . ">Item #: ". $row['Product_ID'] ." Name: ". $row['Name'] ."</option>");
 							  }
 							echo "</select>";
 							echo "</div>";
@@ -111,25 +138,26 @@
 							echo "<input type=\"text\" class=\"form-control\" id=\"lineTotal\" name=\"lineTotal\">";
 							echo "</div>";
 							echo "<button type=\"submit\" class=\"btn btn-default\">Add Anoter Line Item</button>";
-							echo "</div>";
+							echo "</div><hr>";
 							  }
 							  }
 						else {
-							echo "ID="+$LastInsertedID;
 							echo "<div class=\"col-md-1\">";
 							echo "<label for=\"lineNumber\">Line #: </label>";
-							$ItemNum+1;
-							echo " <input type=\"number\" class=\"form-control\" id=\"lineNumber\" name=\"lineNumber\" value=\"<?php $ItemNum+$ItemNum; ?>\">";
+							$counter=1;
+							?>
+							<input type="number" class="form-control" id="lineNumber" name="lineNumber" value="<?php echo"$counter"; ?>">
+							<?php
 							echo "</div>";
 							echo "<div class=\"col-md-2\">";
 							echo "<label for=\"itemNumber\">Item #: </label>";
-
+							include 'connection.php';
 							$mysql_hostname = 'fall14seniorproj.db.7456864.hostedresource.com';
 							$mysql_username = 'fall14seniorproj';
 							$mysql_password = 'Seniorproject1#';
 						    $mysql_dbname = 'fall14seniorproj';
-						
 						    $con = new mysqli($mysql_hostname, $mysql_username,$mysql_password,$mysql_dbname,3306);
+							
 							if (mysqli_connect_errno())
 							{
 								echo "DB Connection failed"+ mysqli_connect_errno();
@@ -141,7 +169,7 @@
 							// for each open job, create the HTML<option> tag with the data name
 							while($row = mysqli_fetch_array($result))
 							  {
-							      echo("</option><option value=". $row['Product_ID'] . ">Item #: ". $row['Product_ID'] ." Name: ". $row['Name'] ."</option>");
+							      echo("<option value=". $row['Product_ID'] . ">Item #: ". $row['Product_ID'] ." Name: ". $row['Name'] ."</option>");
 							  }
 							echo "</select>";
 							echo "</div>";
@@ -159,8 +187,10 @@
 							echo "</div>";
 							echo "<button type=\"submit\" class=\"btn btn-default\">Add Anoter Line Item</button>";
 							echo "</div>";
+							mysqli_close($con);
 							 }
 							?>
+							<hr>
 				</form>
 				<br>
 				<button type="submit" class="btn btn-default">Submit All</button>

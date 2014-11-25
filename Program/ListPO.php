@@ -65,28 +65,30 @@ include 'connection.php';
 	}
 
 mysqli_select_db($con,$mysql_dbname);
-$sql="SELECT * FROM VENDOR";
+$sql="SELECT * FROM PO_REQUEST";
 $result = mysqli_query($con,$sql);
 echo "<div class=\"table-responsive\">";
 echo "<table class=\"table table-striped table-bordered table-hover\">
 <tr>
-<th> Company </th>
-<th> POC First Name </th>
-<th> POC Last Name </th>
-<th> Vender Phone 1 </th>
-<th> Vender Phone 2 </th>
-<th> Vender Email </th>
-<th> Vender_Number </th>
+<th> PO Request Number</th>
+<th> Date Created </th>
+<th> Date Filled</th>
+<th> Date Expected </th>
+<th> Open </th>
+<th> User who made it</th>
+<th> Store</th>
+<th> Vender </th>
 </tr>";
 
 while($row = mysqli_fetch_array($result)) {
   echo "<tr>";
-  echo "<td> " . $row['Company'] . " </td>";
-  echo "<td> " . $row['POC_FN'] . " </td>";
-  echo "<td> " . $row['POC_LN'] . " </td>";
-  echo "<td> " . $row['Vender_Phone1'] . " </td>";
-  echo "<td> " . $row['Vender_Phone2'] . " </td>";
-  echo "<td> " . $row['Vender_Email'] . " </td>";
+  echo "<td> " . $row['PO_Request_ID'] . " </td>";
+  echo "<td> " . $row['Date_Generated'] . " </td>";
+  echo "<td> " . $row['Fate_Filled'] . " </td>";
+  echo "<td> " . $row['Date_Expected'] . " </td>";
+  echo "<td> " . $row['Opened'] . " </td>";
+  echo "<td> " . $row['User_ID'] . " </td>";
+  echo "<td> " . $row['Store_ID'] . " </td>";
   echo "<td> " . $row['Vend_ID'] . " </td>";
   echo "</tr>";
 }

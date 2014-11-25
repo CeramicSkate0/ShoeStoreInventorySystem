@@ -45,7 +45,7 @@
 			        <li class="dropdown">
 			          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Inventory Management<b class="caret"></b></a>
 			          <ul class="dropdown-menu">
-			          	<li><a href="ListInv.php">List Inventory</a></li>
+			          	<li><a href="ListInv.php">View Inventory</a></li>
 			          	<li class="divider"></li>
 			          	<li><a href="SearchInvPrep.php">Adjust Inventory</a></li>
 			          </ul>
@@ -63,6 +63,7 @@
 			        <li class="dropdown">
 			          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Venders<b class="caret"></b></a>
 			          <ul class="dropdown-menu">
+			          	<li><a href="ViewAllVenders.php">View all Venders</a></li>
 			          	<li><a href="SearchVenderPrep.php">Edit a Venders Info</a></li>
 			          	<li><a href="AddNewVender.php">Add New Vender</a></li>	 	          	
 			          </ul>
@@ -70,13 +71,13 @@
 			        <li class="dropdown">
 			          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Purchase Orders <b class="caret"></b></a>
 			          <ul class="dropdown-menu">
-			            <li><a href="">List PO's</a></li>
-			            <li><a href="">Search PO's</a></li>
+			            <li><a href="ListPO.php">List PO's</a></li>
+			            <li><a href="SearchPO.php">Search PO's</a></li>
 			            <li class="divider"></li>
-			            <li><a href="">Create PO</a></li>
-						<li><a href="">Receive PO</a></li>
-						<li><a href="">Change PO</a></li>
-						<li><a href="">Delete PO</a></li>
+			            <li><a href="AddPO.php">Create PO</a></li>
+						<li><a href="SearchPO.php">Receive PO</a></li>
+						<li><a href="SearchPO.php">Change PO</a></li>
+						<li><a href="SearchPO.php">Delete PO</a></li>
 			          </ul>
 			        </li>
 			        <li class="dropdown">
@@ -130,21 +131,22 @@
 	        		<h2></h2>
 	        		<a href="AddNewVender.php"><button type=​"button" class=​"btn btn-default">​Add Vender</button></a>
 	        		<h2></h2>
+	        		<a href="ViewAllVenders.php"><button type=​"button" class=​"btn btn-default">View All Venders</button></a>
 	        	</div>
 	        	<div class="col-md-6">
 	        		<h1>Purchase Orders:</h1>
 	        		<h2></h2>
-	        		<a href=""><button type=​"button" class=​"btn btn-default">List purchase orders</button></a>
+	        		<a href="ListPO.php"><button type=​"button" class=​"btn btn-default">List purchase orders</button></a>
 	        		<h2></h2>
-	        		<a href=""><button type=​"button" class=​"btn btn-default">Search for purchase orders by vendor, due date, or purchase order number</button></a>
+	        		<a href="SearchPO.php"><button type=​"button" class=​"btn btn-default">Search for purchase orders by vendor, due date, or purchase order number</button></a>
 					<h2></h2>
-	        		<a href=""><button type=​"button" class=​"btn btn-default">Create a new purchase order</button></a>
+	        		<a href="AddPO.php"><button type=​"button" class=​"btn btn-default">Create a new purchase order</button></a>
 					<h2></h2>
-	        		<a href=""><button type=​"button" class=​"btn btn-default">Receive line items on a purchase order</button></a>
+	        		<a href="SearchPO.php"><button type=​"button" class=​"btn btn-default">Receive line items on a purchase order</button></a>
 					<h2></h2>
-	        		<a href=""><button type=​"button" class=​"btn btn-default">Revise details of an existing purchase order</button></a>
+	        		<a href="SearchPO.php"><button type=​"button" class=​"btn btn-default">Revise details of an existing purchase order</button></a>
 					<h2></h2>
-	        		<a href=""><button type=​"button" class=​"btn btn-default">Delete an existing purchase order</button></a>
+	        		<a href="SearchPO.php"><button type=​"button" class=​"btn btn-default">Delete an existing purchase order</button></a>
 	        		<h2></h2>
 	        	</div>
 	        	<div class="col-md-6">
