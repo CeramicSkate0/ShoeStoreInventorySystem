@@ -1,0 +1,29 @@
+Shoe Store Database Documentation
+
+Background:
+
+Client has working database system to track inventory and purchase orders for small chain of shoe stores. Database runs in DOS environment. Client has no issues or significant desire for revisions to current system but needs similar functionality in a system that will run on current architecture and operating systems.
+
+Objective: Create database system that tracks purchase orders and inventory in similar manner to current system. Access through web interface and through mobile devices is also desired.
+
+Planning:
+- Decided to use mySQL back-end with PHP and Bootstrap front-end
+- Considered single DB table design but decided that this is not ideal with current DB systems
+
+Actions:
+- Secured server and GitHub repository
+- Created ERD
+- Created mySQL database based on ERD
+- Decided on and build basic HTML structure for front-end
+- Implemented Bootstrap CSS structure 
+- Began converting HTML pages to PHP to allow interaction with back-end and dynamic pages
+
+Open/Remaining Items:
+- Need to build PO entry page that implements grid system
+  -- Client wants users to be able to enter header info (brand, color, style, etc.) and have grid to allow user to choose quantity for each size
+  -- Client wants each order to create a unique item number, even for items that have been ordered in the past; allows tracking of inventory age and profit by item
+- Need to make sessions work on all pages
+- Need methods and testing to ensure that SQL injections cannot occur
+- Form fields need to have validation built
+- PO system needs to be built for each item on the menu bar
+- Need to test visual appeal and usability based on client input
